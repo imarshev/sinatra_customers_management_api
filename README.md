@@ -20,7 +20,7 @@ Ruby should be installed on your machine.
 ### Clone the repository to your local machine:
 
 ```
-git clone https://github.com/sinatra-customer-management-api.git
+git clone https://github.com/imarshev/sinatra_customers_managment_api.git
 cd sinatra-customer-management-api
 ```
 ### Install all necessary gems:
