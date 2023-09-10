@@ -18,25 +18,42 @@ Install Docker and Docker Compose.
 Ruby should be installed on your machine.
 ## Installation
 ### Clone the repository to your local machine:
-
 ```
 git clone https://github.com/imarshev/sinatra_customers_management_api.git
-cd sinatra_customers_management_api
+cd sinatra-customer-management-api
 ```
-### Install all necessary gems:
+## Running the Application
+
+### Running the Application
+1. Locally (without Docker):
+Install all necessary gems:
 ```
 bundle install
 ```
 
-### Run the database migration:
+Create database:
+
+Set up a .env file with the appropriate values derived from .env.example
+
+Run the database migration:
+```
+bundle exec rake db:create
+```
+
 ```
 bundle exec rake db:migrate
 ```
-## Running the Application
+Run the app:
+```
+bundle exec rackup -o 0.0.0.0 -p 4567
+```
+
+2. Using Docker:
 Build and run the application using Docker Compose:
 ```
 docker-compose up --build
 ```
+
 The application will be accessible at http://localhost:4567.
 
 ## Working with the API
