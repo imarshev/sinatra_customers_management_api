@@ -27,6 +27,11 @@ class MyApp < Sinatra::Base
     halt 401 unless request.env['HTTP_API_KEY'] == ENV['API_KEY']
   end
 
+  not_found do
+    content_type :json
+    { error: 'Resource not found' }.to_json
+  end
+
   post '/customers/new' do
     @body = parse_request_body(request.body.read)
     halt 400, { error: 'Bad request. Should be an array' }.to_json unless @body.is_a?(Array)
