@@ -1,4 +1,4 @@
-# sinatra_customers_managment_api
+# sinatra_customers_management_api
 This project is an API for managing a customer database. It has been developed using Ruby Sinatra and PostgreSQL
 
 ## Features
