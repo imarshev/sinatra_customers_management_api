@@ -15,7 +15,7 @@ This project is an API for managing a customer database. It has been developed u
 ### Clone the repository to your local machine:
 ```
 git clone https://github.com/imarshev/sinatra_customers_management_api.git
-cd sinatra-customer-management-api
+cd sinatra_customers_management_api
 ```
 ## Running the Application
 
