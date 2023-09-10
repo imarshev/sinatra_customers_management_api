@@ -2,20 +2,15 @@
 This project is an API for managing a customer database. It has been developed using Ruby Sinatra and PostgreSQL
 
 ## Features
-API Key Authentication.
-Creating new customers through a JSON API.
-Viewing customer details by ID.
-Paginated listing of customers with the ability to specify the number of items per page.
-Technologies
-Ruby
-Sinatra
-PostgreSQL
-Docker
-
-# Local Setup and Launch
-## Prerequisites
-Install Docker and Docker Compose.
-Ruby should be installed on your machine.
+* API Key Authentication.
+* Creating new customers through a JSON API.
+* Viewing customer details by ID.
+* Paginated listing of customers with the ability to specify the number of items per page.
+## Technologies
+* Ruby
+* Sinatra
+* PostgreSQL
+* Docker
 ## Installation
 ### Clone the repository to your local machine:
 ```
@@ -24,32 +19,29 @@ cd sinatra-customer-management-api
 ```
 ## Running the Application
 
-### Running the Application
-1. Locally (without Docker):
-Install all necessary gems:
+### Running the Application Locally (without Docker)
+
+1. Install all necessary gems:
 ```
 bundle install
 ```
-
-Create database:
-
-Set up a .env file with the appropriate values derived from .env.example
-
-Run the database migration:
+2. Set up a .env file with the appropriate values derived from .env.example
+3. Create database:
 ```
 bundle exec rake db:create
 ```
-
+4. Run the database migration:
 ```
 bundle exec rake db:migrate
 ```
-Run the app:
+5. Run the app:
 ```
 bundle exec rackup -o 0.0.0.0 -p 4567
 ```
 
-2. Using Docker:
-Build and run the application using Docker Compose:
+### Running the Application using Docker
+1. Install Docker and Docker Compose. Ruby should be installed on your machine.
+2. Build and run the application using Docker Compose:
 ```
 docker-compose up --build
 ```
