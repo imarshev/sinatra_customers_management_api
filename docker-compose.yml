@@ -10,7 +10,8 @@ services:
     depends_on:
       - db
     environment:
-      - HOST=http://localhost:3000
+      - API_KEY='zPbVSSyyQfKmkRgcnuhEnQ'
+      - HOST=http://localhost:4567
       - DB_HOST=db
       - DB_NAME=green_atom
       - DB_USER=postgres
