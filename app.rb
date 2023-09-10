@@ -28,7 +28,6 @@ class MyApp < Sinatra::Base
   end
 
   not_found do
-    content_type :json
     { error: 'Resource not found' }.to_json
   end
 
