@@ -52,16 +52,20 @@ The application will be accessible at http://localhost:4567.
 Use an HTTP client such as curl or Postman to interact with the API.
 
 ## Request Examples:
-Create new customers:
+1. Create new customers:
 ```
 curl -X POST -H "Content-Type: application/json" -H "API_KEY: your_api_key" -d '[{"name": "John Doe", "email": "john.doe@example.com"}, {"name": "Jane Doe", "email": "jane.doe@example.com"}]' http://localhost:4567/customers/new
 ```
-Get a list of all customers:
+2. Get a list of all customers:
 ```
 curl -X GET -H "API_KEY: your_api_key" http://localhost:4567/customers
 ```
+you also can set page and per_page query parameters:
+```
+curl -X GET -H "API_KEY: your_api_key" http://localhost:4567/customers?page=1&per_page=5
+```
 
-Get customer information by ID:
+3. Get customer information by ID:
 ```
 curl -X GET -H "API_KEY: your_api_key" http://localhost:4567/customers/1
 ```
