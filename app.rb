@@ -1,9 +1,10 @@
 require 'bundler'
+Bundler.require
+
 require './models/customer'
 require_relative './helpers/request_helper'
 require_relative './helpers/response_helper'
 
-Bundler.require
 Dotenv.load
 
 class MyApp < Sinatra::Base
