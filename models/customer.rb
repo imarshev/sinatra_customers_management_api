@@ -1,9 +1,9 @@
 class Customer < ActiveRecord::Base
-  PERMITTED_PARAMS = %i[first_name last_name surname email].freeze
+  PERMITTED_PARAMS = %i[first_name last_name patronymic_name email].freeze
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :surname, presence: true
+  validates :patronymic_name, presence: true
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true
 
   def self.from_hash(hash)
