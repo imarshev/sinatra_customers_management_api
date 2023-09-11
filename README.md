@@ -54,7 +54,7 @@ Use an HTTP client such as curl or Postman to interact with the API.
 ## Request Examples:
 1. Create new customers:
 ```
-curl -X POST -H "Content-Type: application/json" -H "API_KEY: your_api_key" -d '[{"first_name": "John", last_name: "Doe", patronymic_name: "David", "email": "john.doe@example.com"}, {"first_name": "Jane", last_name: "Doe", patronymic_name: "Steven", "email": "jane.doe@example.com"}]' http://localhost:4567/customers/new
+curl -X POST -H "Content-Type: application/json" -H "API_KEY: your_api_key" -d '[{"first_name": "John", last_name: "Doe", patronymic_name: "David", "email": "john.doe@example.com"}, {"first_name": "Jane", last_name: "Doe", patronymic_name: "Steven", "email": "jane.doe@example.com"}]' http://localhost:4567/customers
 ```
 2. Get a list of all customers:
 ```

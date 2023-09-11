@@ -1,17 +1,20 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
-gem 'sinatra'
-gem 'sinatra-contrib'
-gem 'sinatra-activerecord'
-gem "sinatra-param", require: "sinatra/param"
-gem 'pg'
 gem 'activerecord'
-gem 'rake'
-gem 'pagy'
-gem 'puma'
-gem 'json'
 gem 'dotenv'
+gem 'json'
+gem 'pagy'
+gem 'pg'
+gem 'puma'
+gem 'rake'
+gem 'sinatra'
+gem 'sinatra-activerecord'
+gem 'sinatra-contrib'
+gem 'sinatra-param', require: 'sinatra/param'
 
 group :test, :development do
   gem 'byebug'
+  gem 'rubocop'
 end
