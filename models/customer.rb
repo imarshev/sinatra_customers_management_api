@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Customer < ActiveRecord::Base
   PERMITTED_PARAMS = %i[first_name last_name patronymic_name email].freeze
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RequestHelper
   def parse_request_body(body)
     JSON.parse(body)

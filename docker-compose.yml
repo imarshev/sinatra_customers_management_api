@@ -1,25 +1,30 @@
 version: "3.8"
 services:
   web:
+    tty: true
+    stdin_open: true
     build: .
     command: >
       bash -c "bundle exec rake db:migrate &&
-      bundle exec rackup -o '0.0.0.0' -p 4567"
+      bundle exec rackup --host 0.0.0.0 -p 4567"
     ports:
-      - "4567:4567"
+      - 4567:4567
+    volumes:
+      - .:/app
     depends_on:
       - db
     environment:
-      - HOST=http://localhost:4567
-      - DB_HOST=db
-      - DB_NAME=green_atom
-      - DB_USER=postgres
-      - DB_PASS=password
+      BASE_URL: http://localhost:4567
+      DB_HOST: db
+      DB_NAME: ${DB_NAME:-green_atom}
+      DB_USER: ${DB_USER:-postgres}
+      DB_PASS: ${DB_PASS:-password}
   db:
     image: postgres:13
     environment:
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=green_atom
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASS:-password}
+      POSTGRES_DB: ${DB_NAME:-green_atom}
     volumes:
       - postgres_data:/var/lib/postgresql/data
 volumes:

@@ -43,7 +43,7 @@ bundle exec rackup -o 0.0.0.0 -p 4567
 1. Install Docker and Docker Compose. Ruby should be installed on your machine.
 2. Build and run the application using Docker Compose:
 ```
-docker-compose up --build
+docker-compose up
 ```
 
 The application will be accessible at http://localhost:4567.
@@ -54,20 +54,20 @@ Use an HTTP client such as curl or Postman to interact with the API.
 ## Request Examples:
 1. Create new customers:
 ```
-curl -X POST -H "Content-Type: application/json" -H "API_KEY: your_api_key" -d '[{"first_name": "John", last_name: "Doe", patronymic_name: "David", "email": "john.doe@example.com"}, {"first_name": "Jane", last_name: "Doe", patronymic_name: "Steven", "email": "jane.doe@example.com"}]' http://localhost:4567/customers/new
+curl -X POST -H "Content-Type: application/json" -H "X-Api-Key: your_api_key" -d '[{"first_name": "John", last_name: "Doe", patronymic_name: "David", "email": "john.doe@example.com"}, {"first_name": "Jane", last_name: "Doe", patronymic_name: "Steven", "email": "jane.doe@example.com"}]' http://localhost:4567/customers
 ```
 2. Get a list of all customers:
 ```
-curl -X GET -H "API_KEY: your_api_key" http://localhost:4567/customers
+curl -X GET -H "X-Api-Key: your_api_key" http://localhost:4567/customers
 ```
 you also can set page and per_page query parameters:
 ```
-curl -X GET -H "API_KEY: your_api_key" http://localhost:4567/customers?page=1&per_page=5
+curl -X GET -H "X-Api-Key: your_api_key" http://localhost:4567/customers?page=1&per_page=5
 ```
 
 3. Get customer information by ID:
 ```
-curl -X GET -H "API_KEY: your_api_key" http://localhost:4567/customers/1
+curl -X GET -H "X-Api-Key: your_api_key" http://localhost:4567/customers/1
 ```
 
 

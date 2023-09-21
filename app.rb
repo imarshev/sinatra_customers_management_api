@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'bundler'
 Bundler.require
 
 require './models/customer'
-require_relative './helpers/request_helper'
-require_relative './helpers/response_helper'
+require_relative 'helpers/request_helper'
+require_relative 'helpers/response_helper'
 
 Dotenv.load
 
@@ -15,8 +17,11 @@ class MyApp < Sinatra::Base
 
   configure do
     db_options = {
-      adapter: 'postgresql', host: ENV['DB_HOST'], database: ENV['DB_NAME'],
-      user: ENV['DB_USER'], password: ENV['DB_PASS']
+      adapter: 'postgresql',
+      host: ENV.fetch('DB_HOST', 'localhost'),
+      database: ENV.fetch('DB_NAME', 'green_atom'),
+      user: ENV.fetch('DB_USER', 'postgres'),
+      password: ENV.fetch('DB_PASS', 'password')
     }
 
     set :database, db_options
@@ -24,14 +29,14 @@ class MyApp < Sinatra::Base
 
   before do
     content_type :json
-    halt 401 unless request.env['HTTP_API_KEY'] == ENV['API_KEY']
+    halt 401 unless request.env['HTTP_X_API_KEY'] == ENV['API_KEY']
   end
 
   not_found do
     { error: 'Resource not found' }.to_json
   end
 
-  post '/customers/new' do
+  post '/customers' do
     @body = parse_request_body(request.body.read)
     halt 400, { error: 'Bad request. Should be an array' }.to_json unless @body.is_a?(Array)
     result = post_bulk_customers(@body)
